@@ -4,7 +4,9 @@ MatKul adalah aplikasi web semantik untuk pencarian Informasi tentang Mata Kulia
 
 Aplikasi ini dibuat menggunakan Symfony 5 PHP Framework
 
-Kelompok
-NPM	Name	
-140810180021	Sarah Navianti D.S 	
-140810180073	Raissa Amini
+# Kelompok
+
+|        Nama         | NPM          |
+| -----               | ---          |
+| Sarah Navianti D.S  | 140810180021 |
+| Raissa Amini        | 140810180073 |
