@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddab81359814b88dad27a2f6d961a375",
+    "content-hash": "d404f368348b4481d75f9f12c4094041",
     "packages": [
+        {
+            "name": "bordercloud/sparql",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BorderCloud/SPARQL.git",
+                "reference": "bcb114b7af844325284b494f69c39fad719c01a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BorderCloud/SPARQL/zipball/bcb114b7af844325284b494f69c39fad719c01a4",
+                "reference": "bcb114b7af844325284b494f69c39fad719c01a4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-xml": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "clean/phpdoc-md": "^0.19.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "bin": [
+                "bin/query"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BorderCloud\\SPARQL\\": "src/",
+                    "BorderCloud\\SPARQL\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-SA-4.0"
+            ],
+            "authors": [
+                {
+                    "name": "Karima Rafes",
+                    "email": "karima.rafes@bordercloud.com",
+                    "homepage": "http://www.bordercloud.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lib PHP very easy for SPARQL 1.1",
+            "homepage": "https://github.com/BorderCloud/SPARQL",
+            "keywords": [
+                "RDF",
+                "sparql"
+            ],
+            "support": {
+                "issues": "https://github.com/BorderCloud/SPARQL/issues",
+                "source": "https://github.com/BorderCloud/SPARQL/tree/2.1.0"
+            },
+            "time": "2021-05-14T15:51:47+00:00"
+        },
         {
             "name": "psr/cache",
             "version": "1.0.1",
