@@ -120,22 +120,22 @@
                 $biodata = $row["Biodata_Dosen"];
                 echo "
                 <div class='card-result'>
-                    <p>Mata Kuliah :$matkul</p>
-                    <p>Nama Dosen :$dosen</p>
-                    <p>Semester :$semester</p>
-                    <p>SKS : $sks</p>
-                    <p>Kode : $kode</p>
-                    <p>Biodata Dosen : $biodata</a></p>
+                    Mata Kuliah : <strong>$matkul</strong> <br>
+                    Nama Dosen : $dosen<br>
+                    Semester : $semester<br>
+                    SKS : $sks<br>
+                    Kode : $kode<br>
+                    Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
                 </div>";
             }
-            echo "
+            // echo "
             
-            </div>
-            <fieldset>
-            <legend>MatkulTI</legend>
-            <legend>Teknik Informatika Unpad</legend>
-            </fieldset>
-            </div>";
+            // </div>
+            // <fieldset>
+            // <legend>MatkulTI</legend>
+            // <legend>Teknik Informatika Unpad</legend>
+            // </fieldset>
+            // </div>";
         }
         ?>
 

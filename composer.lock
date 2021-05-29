@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d404f368348b4481d75f9f12c4094041",
+    "content-hash": "b1c665b62ddd658cfc0a7f71fee46bc7",
     "packages": [
         {
             "name": "bordercloud/sparql",
