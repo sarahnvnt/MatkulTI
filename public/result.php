@@ -22,7 +22,7 @@
                 <a href="index.html" class="navbar-brand">TI MatKul Repository</a>
                 <div class="">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Advanced Search</a>
+                        <a class="nav-link" href="advsearch.php">Advanced Search</a>
                     </li>
                     </form>
                 </div>
@@ -35,7 +35,16 @@
     <div class="content-result">
         <div class="search-container">
             <form action="result.php" method="POST">
-                <input type="text" placeholder="Search the lesson here..." name="search">
+            	<?php 
+		            if (isset($_POST['search'])) {
+		    					if (empty($_POST['search'])) {
+		        						$search = 'Search the lesson here...';
+		    						} else { 
+		        						$search = $_POST['search'];
+		    						}
+								}
+            	?>
+                <input type="text" placeholder="<?php echo $search ?>" name="search">
                 <button type="submit">Search</button>
             </form>
         </div>
@@ -64,11 +73,15 @@
         $sks = false;
         $biodata = false;
 
+        	echo "
+                <div class='result'>
+
+                ";
         if (isset($_POST['search']))
             $search = $_POST['search'];
 
         if (!$search) {
-            echo "<h1>Data Kosong!</h1>";
+            echo "<div><h1>Masukkan Pencarian!</h1></div>";
         }
         //Error Handling
         else {
@@ -108,9 +121,13 @@
                 print_r($err);
                 throw new Exception(print_r($err, true));
             }
-            echo "
-                <div class='result'>
-                ";
+
+            echo "<div>Hasil Pencarian $search</div>";
+
+            if(empty($rows["result"]["rows"])){
+               echo "<div><h2>Hasil tidak ditemukan</h2></div>";
+            }
+
             foreach ($rows["result"]["rows"] as $row) {
                 $matkul = $row["Nama_Matkul"];
                 $dosen = $row["Nama_Dosen"];
@@ -118,6 +135,7 @@
                 $sks = $row["SKS"];
                 $kode = $row["Kode_Matkul"];
                 $biodata = $row["Biodata_Dosen"];
+
                 echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
