@@ -86,7 +86,7 @@
         //Error Handling
         else {
             $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "MatkulTI2"; // fuseki Sparql database 
+            $fuseki_sparql_db = "Matkul2"; // fuseki Sparql database 
             $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
             $sc = new SparqlClient();
             $sc->setEndpointRead($endpoint);
