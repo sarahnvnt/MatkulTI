@@ -49,6 +49,8 @@
             </form>
         </div>
 
+        <div class='result'>
+
 
 
 
@@ -73,10 +75,6 @@
         $sks = false;
         $biodata = false;
 
-        	echo "
-                <div class='result'>
-
-                ";
         if (isset($_POST['search']))
             $search = $_POST['search'];
 
@@ -156,7 +154,7 @@
             // </div>";
         }
         ?>
-
+        </div>
 
 </body>
 

@@ -22,7 +22,7 @@
                 <a href="index.html" class="navbar-brand">TI MatKul Repository</a>
                 <div class="">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Advanced Search</a>
+                        <a class="nav-link" href="advsearch.php">Advanced Search</a>
                     </li>
                     </form>
                 </div>
