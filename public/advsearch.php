@@ -18,11 +18,12 @@
 </head>
 
 <body>
-<?php 
-use BorderCloud\SPARQL\SparqlClient;
+    <?php
 
-require_once('../vendor/autoload.php');
-?>
+    use BorderCloud\SPARQL\SparqlClient;
+
+    require_once('../vendor/autoload.php');
+    ?>
     <div>
 
         <nav class="navbar ">
@@ -43,28 +44,28 @@ require_once('../vendor/autoload.php');
     <div class="content-result">
         <div class="advance">
             <form action="advsearch.php" method="POST">
-                
+
+                <div class="">
                     <div class="">
                         <div class="">
-                            <div class="">
-                                <label>Nama Dosen :</label>
-                                <input type="text" name="dosen" id="dosen" placeholder="Nama Dosen..."/>
-                            </div>
+                            <label>Nama Dosen :</label>
+                            <input type="text" name="dosen" id="dosen" placeholder="Nama Dosen..." />
                         </div>
+                    </div>
 
+                    <div class="">
                         <div class="">
-                            <div class="">
-                                <label>Pilih Semester :</label>
-                                <select name="semester" id="semester">
+                            <label>Pilih Semester :</label>
+                            <select name="semester" id="semester">
                                 <option value="">Semester...</option>
-                                <?php 
-                                        
-                                    $fuseki_server = "http://localhost:3030"; // fuseki server address 
-                                    $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
-                                    $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
-                                    $sc = new SparqlClient();
-                                    $sc->setEndpointRead($endpoint);
-                                    $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                                <?php
+
+                                $fuseki_server = "http://31.220.62.156:3030"; // fuseki server address 
+                                $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
+                                $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
+                                $sc = new SparqlClient();
+                                $sc->setEndpointRead($endpoint);
+                                $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                                             PREFIX owl: <http://www.w3.org/2002/07/owl#>
                                             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                                             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -78,44 +79,45 @@ require_once('../vendor/autoload.php');
                                             ?Matkul rdf:type :Matkul .
                                                 OPTIONAL {?Matkul :Semester ?Semester . }}ORDER BY ASC(?Semester)
                                         ";
-                                    
-                                    $rows = $sc->query($q, 'rows');
-                                    $err = $sc->getErrors();
-                                    if ($err) {
-                                        print_r($err);
-                                        throw new Exception(print_r($err, true));
-                                    }
-                                    foreach ($rows["result"]["rows"] as $row) {
-                                        $semesters = $row["Semester"];
-                        
-                                        echo "
-                                        <option value='".$semesters."'>$semesters</option>";
-                                    }
 
-                                 ?>
+                                $rows = $sc->query($q, 'rows');
+                                $err = $sc->getErrors();
+                                if ($err) {
+                                    print_r($err);
+                                    throw new Exception(print_r($err, true));
+                                }
+                                foreach ($rows["result"]["rows"] as $row) {
+                                    $semesters = $row["Semester"];
+
+                                    echo "
+                                        <option value='" . $semesters . "'>$semesters</option>";
+                                }
+
+                                ?>
                             </select>
-                            </div>
                         </div>
+                    </div>
 
+                    <div class="">
                         <div class="">
-                            <div class="">
-                                <label>Pilih SKS :</label>
-                                <select name="sks" id="sks">
+                            <label>Pilih SKS :</label>
+                            <select name="sks" id="sks">
                                 <option value="">SKS...</option>
                                 <option value="2">2 SKS</option>
                                 <option value="3">3 SKS</option>
                             </select>
-                            </div>
-                        </div>
-
-                        <div class="">
-                            <div class="">
-                                <label>Tampilkan semua matkul :</label>
-                                <input type="checkbox" id="check" name="check" value="check">                            </div>
                         </div>
                     </div>
+
+                    <div class="">
+                        <div class="">
+                            <label>Tampilkan semua matkul :</label>
+                            <input type="checkbox" id="check" name="check" value="check">
+                        </div>
+                    </div>
+                </div>
                 <div class="inner-form">
-                <button class="btn-search" type="submit">Search</button>
+                    <button class="btn-search" type="submit">Search</button>
                 </div>
             </form>
         </div>
@@ -125,47 +127,47 @@ require_once('../vendor/autoload.php');
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-        <!--Backend-->
-        <?php
+            <!--Backend-->
+            <?php
 
 
 
-        //Error Handling
-        $matkul = false;
-        $dosen = false;
-        $kode = false;
-        $semester = false;
-        $sks = false;
-        $biodata = false;
-        $deskripsi = false;
-        $check = false;
+            //Error Handling
+            $matkul = false;
+            $dosen = false;
+            $kode = false;
+            $semester = false;
+            $sks = false;
+            $biodata = false;
+            $deskripsi = false;
+            $check = false;
 
-        if (isset($_POST['dosen']))
-            $dosen = $_POST['dosen'];
+            if (isset($_POST['dosen']))
+                $dosen = $_POST['dosen'];
 
-        if (isset($_POST['semester']))
-            $semester = $_POST['semester'];
+            if (isset($_POST['semester']))
+                $semester = $_POST['semester'];
 
-        if (isset($_POST['sks']))
-            $sks = $_POST['sks'];
-        
-        if (isset($_POST['check']))
-            $check = $_POST['check'];
+            if (isset($_POST['sks']))
+                $sks = $_POST['sks'];
 
-        if (!$dosen && !$semester && !$sks && !$check) {
-            echo "<div><h2>Masukkan Pencarian!</h2></div>";
-        }elseif(!$check){
-            $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
-            $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
-            $sc = new SparqlClient();
-            $sc->setEndpointRead($endpoint);
-            $q2 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            if (isset($_POST['check']))
+                $check = $_POST['check'];
+
+            if (!$dosen && !$semester && !$sks && !$check) {
+                echo "<div><h2>Masukkan Pencarian!</h2></div>";
+            } elseif (!$check) {
+                $fuseki_server = "http://31.220.62.156:3030"; // fuseki server address 
+                $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
+                $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
+                $sc = new SparqlClient();
+                $sc->setEndpointRead($endpoint);
+                $q2 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -189,42 +191,42 @@ require_once('../vendor/autoload.php');
                   regex(?SKS, '$sks', 'i') &&
                   regex(?Semester, '$semester', 'i')) }
                 ";
-            // proses ke query 
-            $rows = $sc->query($q2, 'rows');
-            $err = $sc->getErrors();
-            if ($err) {
-                print_r($err);
-                throw new Exception(print_r($err, true));
-            }
+                // proses ke query 
+                $rows = $sc->query($q2, 'rows');
+                $err = $sc->getErrors();
+                if ($err) {
+                    print_r($err);
+                    throw new Exception(print_r($err, true));
+                }
 
-            if($dosen == ""){
-                $dosen = "-";
-            }
-            if($semester == ""){
-                $semester = "-";
-            }
-            if($sks == ""){
-                $sks = "-";
-            }
-            
-             $count = count($rows);
-            echo "<div> Hasil Pencarian Dosen : <strong>$dosen</strong> / Semester : <strong>$semester</strong> / SKS : <strong>$sks</strong> </div>";
+                if ($dosen == "") {
+                    $dosen = "-";
+                }
+                if ($semester == "") {
+                    $semester = "-";
+                }
+                if ($sks == "") {
+                    $sks = "-";
+                }
 
-            if(empty($rows["result"]["rows"])){
-               echo "<div><h2>Hasil tidak ditemukan</h2></div>";
-            }
+                $count = count($rows);
+                echo "<div> Hasil Pencarian Dosen : <strong>$dosen</strong> / Semester : <strong>$semester</strong> / SKS : <strong>$sks</strong> </div>";
 
-            foreach ($rows["result"]["rows"] as $row) {
-                $matkul = $row["Nama_Matkul"];
-                $dosen = $row["Nama_Dosen"];
-                $semester = $row["Semester"];
-                $sks = $row["SKS"];
-                $kode = $row["Kode_Matkul"];
-                $biodata = $row["Biodata_Dosen"];
-                $deskripsi = $row["Deskripsi"];
+                if (empty($rows["result"]["rows"])) {
+                    echo "<div><h2>Hasil tidak ditemukan</h2></div>";
+                }
+
+                foreach ($rows["result"]["rows"] as $row) {
+                    $matkul = $row["Nama_Matkul"];
+                    $dosen = $row["Nama_Dosen"];
+                    $semester = $row["Semester"];
+                    $sks = $row["SKS"];
+                    $kode = $row["Kode_Matkul"];
+                    $biodata = $row["Biodata_Dosen"];
+                    $deskripsi = $row["Deskripsi"];
 
 
-                echo "
+                    echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
                     <button class='collapsible'>Deskripsi Mata Kuliah</button>
@@ -235,17 +237,17 @@ require_once('../vendor/autoload.php');
                     Semester : $semester<br>
                     SKS : $sks<br>
                     Kode : $kode<br>
-                    Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
+                    Biodata Dosen :  <a href='" . $biodata . "'>$biodata</a><br>
                 </div>";
-            }
-        }else{
-            
-            $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
-            $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
-            $sc = new SparqlClient();
-            $sc->setEndpointRead($endpoint);
-            $q3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                }
+            } else {
+
+                $fuseki_server = "http://31.220.62.156:3030"; // fuseki server address 
+                $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
+                $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
+                $sc = new SparqlClient();
+                $sc->setEndpointRead($endpoint);
+                $q3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -266,36 +268,36 @@ require_once('../vendor/autoload.php');
                 OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
             }
                 ";
-            // proses ke query 
-            $rows = $sc->query($q3, 'rows');
-            $err = $sc->getErrors();
-            if ($err) {
-                print_r($err);
-                throw new Exception(print_r($err, true));
-            }
+                // proses ke query 
+                $rows = $sc->query($q3, 'rows');
+                $err = $sc->getErrors();
+                if ($err) {
+                    print_r($err);
+                    throw new Exception(print_r($err, true));
+                }
 
-            if($deskripsi == ""){
-                $deskripsi = "tidak ada";
-            }
+                if ($deskripsi == "") {
+                    $deskripsi = "tidak ada";
+                }
 
-            
-             $count = count($rows);
-            echo "<div> Menampilkan Semua Mata Kuliah </div>";
 
-            if(empty($rows["result"]["rows"])){
-               echo "<div><h2>Hasil tidak ditemukan</h2></div>";
-            }
+                $count = count($rows);
+                echo "<div> Menampilkan Semua Mata Kuliah </div>";
 
-            foreach ($rows["result"]["rows"] as $row) {
-                $matkul = $row["Nama_Matkul"];
-                $dosen = $row["Nama_Dosen"];
-                $semester = $row["Semester"];
-                $sks = $row["SKS"];
-                $kode = $row["Kode_Matkul"];
-                $deskripsi = $row["Deskripsi"];
-                $biodata = $row["Biodata_Dosen"];
+                if (empty($rows["result"]["rows"])) {
+                    echo "<div><h2>Hasil tidak ditemukan</h2></div>";
+                }
 
-                echo "
+                foreach ($rows["result"]["rows"] as $row) {
+                    $matkul = $row["Nama_Matkul"];
+                    $dosen = $row["Nama_Dosen"];
+                    $semester = $row["Semester"];
+                    $sks = $row["SKS"];
+                    $kode = $row["Kode_Matkul"];
+                    $deskripsi = $row["Deskripsi"];
+                    $biodata = $row["Biodata_Dosen"];
+
+                    echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
                     <button class='collapsible'>Deskripsi Mata Kuliah</button>
@@ -306,14 +308,14 @@ require_once('../vendor/autoload.php');
                     Semester : $semester<br>
                     SKS : $sks<br>
                     Kode : $kode<br>
-                    Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
+                    Biodata Dosen :  <a href='" . $biodata . "'>$biodata</a><br>
                 </div>";
+                }
             }
-        }
-        
-        
-            
-        ?>
+
+
+
+            ?>
         </div>
         <script src="js/collapsible.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

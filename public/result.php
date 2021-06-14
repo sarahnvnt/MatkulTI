@@ -37,15 +37,15 @@
     <div class="content-result">
         <div class="search-container">
             <form action="result.php" method="POST">
-            	<?php 
-		            if (isset($_POST['search'])) {
-		    					if (empty($_POST['search'])) {
-		        						$search = '';
-		    						} else { 
-		        						$search = $_POST['search'];
-		    						}
-								}
-            	?>
+                <?php
+                if (isset($_POST['search'])) {
+                    if (empty($_POST['search'])) {
+                        $search = '';
+                    } else {
+                        $search = $_POST['search'];
+                    }
+                }
+                ?>
                 <input type="text" placeholder="Search the lesson here..." name="search" value="<?php echo $search ?>">
                 <button type="submit">Search</button>
             </form>
@@ -56,46 +56,46 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-        <!--Backend-->
-        <?php
+            <!--Backend-->
+            <?php
 
-        use BorderCloud\SPARQL\SparqlClient;
+            use BorderCloud\SPARQL\SparqlClient;
 
-        require_once('../vendor/autoload.php');
+            require_once('../vendor/autoload.php');
 
-        //Error Handling
-        $search = false;
-        $matkul = false;
-        $dosen = false;
-        $kode = false;
-        $semester = false;
-        $sks = false;
-        $biodata = false;
-        $deskripsi = false;
+            //Error Handling
+            $search = false;
+            $matkul = false;
+            $dosen = false;
+            $kode = false;
+            $semester = false;
+            $sks = false;
+            $biodata = false;
+            $deskripsi = false;
 
-        if (isset($_POST['search']))
-            $search = $_POST['search'];
+            if (isset($_POST['search']))
+                $search = $_POST['search'];
 
-        if (!$search) {
-            echo "<div><h1>Masukkan Pencarian!</h1></div>";
-        }
-        //Error Handling
-        else {
-            $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
-            $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
-            $sc = new SparqlClient();
-            $sc->setEndpointRead($endpoint);
+            if (!$search) {
+                echo "<div><h1>Masukkan Pencarian!</h1></div>";
+            }
+            //Error Handling
+            else {
+                $fuseki_server = "http://31.220.62.156:3030"; // fuseki server address 
+                $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
+                $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
+                $sc = new SparqlClient();
+                $sc->setEndpointRead($endpoint);
 
-            $key = explode(" ",$search);
-            foreach($key as $kata){
+                $key = explode(" ", $search);
+                foreach ($key as $kata) {
 
-                $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -173,34 +173,34 @@
                         FILTER (regex(?Semester, '$kata', 'i'))
                 }}
                 ";
-            }
-
-            
-            // proses ke query 
-            $rows = $sc->query($q, 'rows');
-            $err = $sc->getErrors();
-            if ($err) {
-                print_r($err);
-                throw new Exception(print_r($err, true));
-            }
-
-            echo "<div>Hasil Pencarian <strong>$search</strong></div>";
-
-            if(empty($rows["result"]["rows"])){
-               echo "<div><h2>Hasil tidak ditemukan</h2></div>";
-            }
-
-            foreach ($rows["result"]["rows"] as $row) {
-                $matkul = $row["Nama_Matkul"];
-                $dosen = $row["Nama_Dosen"];
-                $semester = $row["Semester"];
-                $sks = $row["SKS"];
-                $kode = $row["Kode_Matkul"];
-                $biodata = $row["Biodata_Dosen"];
-                $deskripsi = $row["Deskripsi"];
+                }
 
 
-                echo "
+                // proses ke query 
+                $rows = $sc->query($q, 'rows');
+                $err = $sc->getErrors();
+                if ($err) {
+                    print_r($err);
+                    throw new Exception(print_r($err, true));
+                }
+
+                echo "<div>Hasil Pencarian <strong>$search</strong></div>";
+
+                if (empty($rows["result"]["rows"])) {
+                    echo "<div><h2>Hasil tidak ditemukan</h2></div>";
+                }
+
+                foreach ($rows["result"]["rows"] as $row) {
+                    $matkul = $row["Nama_Matkul"];
+                    $dosen = $row["Nama_Dosen"];
+                    $semester = $row["Semester"];
+                    $sks = $row["SKS"];
+                    $kode = $row["Kode_Matkul"];
+                    $biodata = $row["Biodata_Dosen"];
+                    $deskripsi = $row["Deskripsi"];
+
+
+                    echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
                     <button class='collapsible'>Deskripsi Mata Kuliah</button>
@@ -211,19 +211,19 @@
                     Semester : $semester<br>
                     SKS : $sks<br>
                     Kode : $kode<br>
-                    Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
+                    Biodata Dosen :  <a href='" . $biodata . "'>$biodata</a><br>
                 </div>";
+                }
+                // echo "
+
+                // </div>
+                // <fieldset>
+                // <legend>MatkulTI</legend>
+                // <legend>Teknik Informatika Unpad</legend>
+                // </fieldset>
+                // </div>";
             }
-            // echo "
-            
-            // </div>
-            // <fieldset>
-            // <legend>MatkulTI</legend>
-            // <legend>Teknik Informatika Unpad</legend>
-            // </fieldset>
-            // </div>";
-        }
-        ?>
+            ?>
         </div>
 
         <script src="js/collapsible.js"></script>
