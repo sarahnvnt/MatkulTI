@@ -129,6 +129,78 @@ form {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
 
+
+/* Collapsible */
+
+.collapsible {
+    background-color: #AD6A6C;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #a8585b;
+    border: none;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.deskripsi {
+    padding: 0 18px;
+    margin-top: -5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+
+/* Advanced */
+
+.content-result .advance {
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.content-result .advance button {
+    margin: 0px auto;
+    border: none;
+    background-color: #AD6A6C;
+    padding: 5px 20px;
+    color: #FFFFFF;
+    border-radius: 50px;
+}
+
+.advance form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 600px) {
     .search-container {
         width: 80%;

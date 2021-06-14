@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <style>
+        <?php include "css/style.css" ?>
+    </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400&family=Salsa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+    <title>Search</title>
 </head>
 
 <body>
@@ -38,13 +40,13 @@
             	<?php 
 		            if (isset($_POST['search'])) {
 		    					if (empty($_POST['search'])) {
-		        						$search = 'Search the lesson here...';
+		        						$search = '';
 		    						} else { 
 		        						$search = $_POST['search'];
 		    						}
 								}
             	?>
-                <input type="text" placeholder="<?php echo $search ?>" name="search">
+                <input type="text" placeholder="Search the lesson here..." name="search" value="<?php echo $search ?>">
                 <button type="submit">Search</button>
             </form>
         </div>
@@ -74,6 +76,7 @@
         $semester = false;
         $sks = false;
         $biodata = false;
+        $deskripsi = false;
 
         if (isset($_POST['search']))
             $search = $_POST['search'];
@@ -84,7 +87,7 @@
         //Error Handling
         else {
             $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "Matkul2"; // fuseki Sparql database 
+            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
             $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
             $sc = new SparqlClient();
             $sc->setEndpointRead($endpoint);
@@ -94,18 +97,19 @@
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
                 PREFIX : <http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#>
                 
-                SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester
+                SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester ?Deskripsi
                 WHERE { ?Dosen rdf:type :Dosen . 
                 ?Dosen :Nama_Dosen ?Nama_Dosen.
                 ?Dosen :Biodata_Dosen ?Biodata_Dosen.
                 ?Dosen :Mengajar ?Matkul.
                 ?Matkul rdf:type :Matkul .
-                  OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
-                  OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
-                  OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
-                  OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
-                  OPTIONAL {?Matkul :SKS ?SKS . }
-                  OPTIONAL {?Matkul :Semester ?Semester . }
+                    OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                    OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                    OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                    OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                    OPTIONAL {?Matkul :SKS ?SKS . }
+                    OPTIONAL {?Matkul :Semester ?Semester . }
+                    OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
                 FILTER (regex(?Nama_Matkul, '$search', 'i') || 
                   regex(?Nama_Dosen, '$search', 'i') ||
                   regex(?SKS, '$search', 'i') ||
@@ -120,7 +124,7 @@
                 throw new Exception(print_r($err, true));
             }
 
-            echo "<div>Hasil Pencarian $search</div>";
+            echo "<div>Hasil Pencarian <strong>$search</strong></div>";
 
             if(empty($rows["result"]["rows"])){
                echo "<div><h2>Hasil tidak ditemukan</h2></div>";
@@ -133,10 +137,16 @@
                 $sks = $row["SKS"];
                 $kode = $row["Kode_Matkul"];
                 $biodata = $row["Biodata_Dosen"];
+                $deskripsi = $row["Deskripsi"];
+
 
                 echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
+                    <button class='collapsible'>Deskripsi Mata Kuliah</button>
+                    <div class='deskripsi'>
+                    <p>$deskripsi</p>
+                    </div>
                     Nama Dosen : $dosen<br>
                     Semester : $semester<br>
                     SKS : $sks<br>
@@ -155,6 +165,11 @@
         }
         ?>
         </div>
+
+        <script src="js/collapsible.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 

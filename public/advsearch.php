@@ -7,38 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        <?php include "css/style.css" ?>
+    </style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400&family=Salsa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
+    <title>Advanced Search</title>
 
-    <style>
-        .content-result .advance{
-            width: 50%;
-            margin: auto;
-            background-color: white;
-            padding: 10px;
-            border-radius: 20px;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        }
-        .content-result .advance button{
-            margin: 0px auto;
-            border: none;
-            background-color: #AD6A6C;
-            padding: 5px 20px;
-            color: #FFFFFF;
-            border-radius: 50px;
-        }
-
-        .advance form{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -84,7 +60,7 @@ require_once('../vendor/autoload.php');
                                 <?php 
                                         
                                     $fuseki_server = "http://localhost:3030"; // fuseki server address 
-                                    $fuseki_sparql_db = "Matkul2"; // fuseki Sparql database 
+                                    $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
                                     $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
                                     $sc = new SparqlClient();
                                     $sc->setEndpointRead($endpoint);
@@ -138,7 +114,7 @@ require_once('../vendor/autoload.php');
                         </div>
                     </div>
                 <div class="inner-form">
-                <button class="btn-search" type="submit">SEARCH</button>
+                <button class="btn-search" type="submit">Search</button>
                 </div>
             </form>
         </div>
@@ -165,6 +141,7 @@ require_once('../vendor/autoload.php');
         $semester = false;
         $sks = false;
         $biodata = false;
+        $deskripsi = false;
 
         if (isset($_POST['dosen']))
             $dosen = $_POST['dosen'];
@@ -176,12 +153,12 @@ require_once('../vendor/autoload.php');
             $sks = $_POST['sks'];
 
         if (!$dosen && !$semester && !$sks) {
-            echo "<div><h1>Masukkan Pencarian!</h1></div>";
+            echo "<div><h2>Masukkan Pencarian!</h2></div>";
         }
         //Error Handling
         else {
             $fuseki_server = "http://localhost:3030"; // fuseki server address 
-            $fuseki_sparql_db = "Matkul2"; // fuseki Sparql database 
+            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
             $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
             $sc = new SparqlClient();
             $sc->setEndpointRead($endpoint);
@@ -191,18 +168,19 @@ require_once('../vendor/autoload.php');
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
                 PREFIX : <http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#>
                 
-                SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester
+                SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester ?Deskripsi
                 WHERE { ?Dosen rdf:type :Dosen . 
                 ?Dosen :Nama_Dosen ?Nama_Dosen.
                 ?Dosen :Biodata_Dosen ?Biodata_Dosen.
                 ?Dosen :Mengajar ?Matkul.
                 ?Matkul rdf:type :Matkul .
-                  OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
-                  OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
-                  OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
-                  OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
-                  OPTIONAL {?Matkul :SKS ?SKS . }
-                  OPTIONAL {?Matkul :Semester ?Semester . }
+                    OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                    OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                    OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                    OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                    OPTIONAL {?Matkul :SKS ?SKS . }
+                    OPTIONAL {?Matkul :Semester ?Semester . }
+                    OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
                 FILTER (
                   regex(?Nama_Dosen, '$dosen', 'i') &&
                   regex(?SKS, '$sks', 'i') &&
@@ -226,7 +204,7 @@ require_once('../vendor/autoload.php');
                 $sks = "-";
             }
              $count = count($rows);
-            echo "<div> Hasil Pencarian Dosen : $dosen / Semester : $semester / SKS : $sks </div>";
+            echo "<div> Hasil Pencarian Dosen : <strong>$dosen</strong> / Semester : <strong>$semester</strong> / SKS : <strong>$sks</strong> </div>";
 
             if(empty($rows["result"]["rows"])){
                echo "<div><h2>Hasil tidak ditemukan</h2></div>";
@@ -239,10 +217,16 @@ require_once('../vendor/autoload.php');
                 $sks = $row["SKS"];
                 $kode = $row["Kode_Matkul"];
                 $biodata = $row["Biodata_Dosen"];
+                $deskripsi = $row["Deskripsi"];
+
 
                 echo "
                 <div class='card-result'>
                     Mata Kuliah : <strong>$matkul</strong> <br>
+                    <button class='collapsible'>Deskripsi Mata Kuliah</button>
+                    <div class='deskripsi'>
+                    <p>$deskripsi</p>
+                    </div>
                     Nama Dosen : $dosen<br>
                     Semester : $semester<br>
                     SKS : $sks<br>
@@ -250,18 +234,13 @@ require_once('../vendor/autoload.php');
                     Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
                 </div>";
             }
-            // echo "
-            
-            // </div>
-            // <fieldset>
-            // <legend>MatkulTI</legend>
-            // <legend>Teknik Informatika Unpad</legend>
-            // </fieldset>
-            // </div>";
         }
         ?>
         </div>
-
+        <script src="js/collapsible.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
