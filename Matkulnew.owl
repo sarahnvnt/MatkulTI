@@ -1,0 +1,1428 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Matkul "http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#"
+     xml:base="http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:Matkul="http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Diajar -->
+
+    <owl:ObjectProperty rdf:about="&Matkul;Diajar">
+        <rdfs:range rdf:resource="&Matkul;Dosen"/>
+        <rdfs:domain rdf:resource="&Matkul;Matkul"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Mengajar -->
+
+    <owl:ObjectProperty rdf:about="&Matkul;Mengajar">
+        <rdfs:domain rdf:resource="&Matkul;Dosen"/>
+        <rdfs:range rdf:resource="&Matkul;Matkul"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Biodata_Dosen -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Biodata_Dosen">
+        <rdfs:domain rdf:resource="&Matkul;Dosen"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Deskripsi -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Deskripsi"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Kode_Matkul -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Kode_Matkul">
+        <rdfs:domain rdf:resource="&Matkul;Matkul"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Nama_Dosen -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Nama_Dosen">
+        <rdfs:domain rdf:resource="&Matkul;Dosen"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Nama_Matkul -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Nama_Matkul">
+        <rdfs:domain rdf:resource="&Matkul;Matkul"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#SKS -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;SKS">
+        <rdfs:domain rdf:resource="&Matkul;Matkul"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Semester -->
+
+    <owl:DatatypeProperty rdf:about="&Matkul;Semester">
+        <rdfs:domain rdf:resource="&Matkul;Matkul"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen -->
+
+    <owl:Class rdf:about="&Matkul;Dosen"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul -->
+
+    <owl:Class rdf:about="&Matkul;Matkul"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen1 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen1">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/dr-atje-setiawan-a-ms-m-kom/</Biodata_Dosen>
+        <Nama_Dosen>Prof. Dr. Atje Setiawan Abdullah, M.Kom.</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul1"/>
+        <Mengajar rdf:resource="&Matkul;Matkul2"/>
+        <Mengajar rdf:resource="&Matkul;Matkul3"/>
+        <Mengajar rdf:resource="&Matkul;Matkul4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen10 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen10">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Mira Suryani, S.Pd., M.Kom.</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/mira-suryani-m-pd/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul21"/>
+        <Mengajar rdf:resource="&Matkul;Matkul26"/>
+        <Mengajar rdf:resource="&Matkul;Matkul27"/>
+        <Mengajar rdf:resource="&Matkul;Matkul28"/>
+        <Mengajar rdf:resource="&Matkul;Matkul29"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen11 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen11">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Aditya Pradana, S.T., M.Eng.</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/aditya-pradana-m-eng/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul26"/>
+        <Mengajar rdf:resource="&Matkul;Matkul29"/>
+        <Mengajar rdf:resource="&Matkul;Matkul31"/>
+        <Mengajar rdf:resource="&Matkul;Matkul32"/>
+        <Mengajar rdf:resource="&Matkul;Matkul33"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen12 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen12">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/drs-r-sudrajat-m-kom/</Biodata_Dosen>
+        <Nama_Dosen>Drs. R. Sudrajat, M.Kom</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul27"/>
+        <Mengajar rdf:resource="&Matkul;Matkul34"/>
+        <Mengajar rdf:resource="&Matkul;Matkul35"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen13 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen13">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Rudi Rosadi, S.Si., M.Kom</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/rudi-rosadi-s-si-m-kom/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul30"/>
+        <Mengajar rdf:resource="&Matkul;Matkul36"/>
+        <Mengajar rdf:resource="&Matkul;Matkul37"/>
+        <Mengajar rdf:resource="&Matkul;Matkul38"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen14 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen14">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Akmal, S.Si., MT</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/akmal-s-si-mt/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul39"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen15 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen15">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/deni-setianas-si-m-cs/</Biodata_Dosen>
+        <Nama_Dosen>Deni Setiana,S.Si., M.CS</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul40"/>
+        <Mengajar rdf:resource="&Matkul;Matkul41"/>
+        <Mengajar rdf:resource="&Matkul;Matkul42"/>
+        <Mengajar rdf:resource="&Matkul;Matkul43"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen16 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen16">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Tim Dosen Fakultas</Nama_Dosen>
+        <Biodata_Dosen>Tidak Ada Data</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul44"/>
+        <Mengajar rdf:resource="&Matkul;Matkul45"/>
+        <Mengajar rdf:resource="&Matkul;Matkul46"/>
+        <Mengajar rdf:resource="&Matkul;Matkul47"/>
+        <Mengajar rdf:resource="&Matkul;Matkul49"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen17 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen17">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/iin-irianingsih-dra-m-stat/</Biodata_Dosen>
+        <Nama_Dosen>Iin Irianingsih, Dra., M.Stat.</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul48"/>
+        <Mengajar rdf:resource="&Matkul;Matkul51"/>
+        <Mengajar rdf:resource="&Matkul;Matkul54"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen18 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen18">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/dwi-susanti-dra-m-si/</Biodata_Dosen>
+        <Nama_Dosen>Dwi Susanti, Dra., M.Si.</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul48"/>
+        <Mengajar rdf:resource="&Matkul;Matkul51"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen19 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen19">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://www.profildosen.com/detail/0023047907.html</Biodata_Dosen>
+        <Nama_Dosen>Nurullia Fitriani, S.Si, MT</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul50"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen2 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen2">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/dr-setiawan-hadi-m-sc-cs/</Biodata_Dosen>
+        <Nama_Dosen>Dr. Setiawan Hadi, M.Sc.CS.</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul1"/>
+        <Mengajar rdf:resource="&Matkul;Matkul3"/>
+        <Mengajar rdf:resource="&Matkul;Matkul5"/>
+        <Mengajar rdf:resource="&Matkul;Matkul6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen20 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen20">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Norman Syakir, M.Sc</Nama_Dosen>
+        <Biodata_Dosen>https://phys.unpad.ac.id/staffs-dosen/norman-syakir</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul52"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen21 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen21">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Dra. Sri Suryaningsih, M.I.L</Nama_Dosen>
+        <Biodata_Dosen>https://phys.unpad.ac.id/staffs-dosen/sri-suryaningsih</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul52"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen22 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen22">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Yuyun Hidayat, Drs., MS., Ph.D.</Nama_Dosen>
+        <Biodata_Dosen>Tidak Ada Data</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul53"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen23 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen23">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/drs-eddy-djauhari-mm/</Biodata_Dosen>
+        <Nama_Dosen>Eddy Djauhari, Drs., MM</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul55"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen24 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen24">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/elis-hertini-dra-m-si/</Biodata_Dosen>
+        <Nama_Dosen>Elis Hertini, Dra., M.Si</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul56"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen25 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen25">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/julita-nahar-dra-mt/</Biodata_Dosen>
+        <Nama_Dosen>Julita Nahar, Dra, MT</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul56"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen27 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen27">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Retasari Dewi , S.I.Kom., M.I.Kom.</Nama_Dosen>
+        <Biodata_Dosen>Tidak Ada Data</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul57"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen28 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen28">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>http://math.fmipa.unpad.ac.id/personnel/eman-lesmana-drs-msie/</Biodata_Dosen>
+        <Nama_Dosen>Eman Lesmana, Drs., MSIE</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul58"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen29 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen29">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>Tidak Ada Data</Biodata_Dosen>
+        <Nama_Dosen>Dr. Arief Fatchul Huda</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul62"/>
+        <Mengajar rdf:resource="&Matkul;Matkul63"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen3 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen3">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/drs-akik-hidayat-m-kom/</Biodata_Dosen>
+        <Nama_Dosen>Drs. Akik Hidayat, M.Kom</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul7"/>
+        <Mengajar rdf:resource="&Matkul;Matkul8"/>
+        <Mengajar rdf:resource="&Matkul;Matkul9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen4 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen4">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Dr. Intan Nurma Yulita, M.T.</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/intan-nurma-yulita-m-t/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul10"/>
+        <Mengajar rdf:resource="&Matkul;Matkul11"/>
+        <Mengajar rdf:resource="&Matkul;Matkul12"/>
+        <Mengajar rdf:resource="&Matkul;Matkul13"/>
+        <Mengajar rdf:resource="&Matkul;Matkul9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen5 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen5">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Dr. Afrida Helen, MT.</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/dr-afrida-helen-m-kom/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul10"/>
+        <Mengajar rdf:resource="&Matkul;Matkul11"/>
+        <Mengajar rdf:resource="&Matkul;Matkul13"/>
+        <Mengajar rdf:resource="&Matkul;Matkul14"/>
+        <Mengajar rdf:resource="&Matkul;Matkul15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen6 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen6">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Drs. Ino Suryana, M.Kom</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/drs-ino-suryana-m-kom/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul15"/>
+        <Mengajar rdf:resource="&Matkul;Matkul16"/>
+        <Mengajar rdf:resource="&Matkul;Matkul17"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen7 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen7">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Dr. Juli Rejito, M.Kom</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/drs-juli-rejito-m-kom/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul18"/>
+        <Mengajar rdf:resource="&Matkul;Matkul19"/>
+        <Mengajar rdf:resource="&Matkul;Matkul20"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen8 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen8">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Nama_Dosen>Erick Paulus, M.Kom.</Nama_Dosen>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/erick-paulus/</Biodata_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Dosen9 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Dosen9">
+        <rdf:type rdf:resource="&Matkul;Dosen"/>
+        <Biodata_Dosen>https://informatika.unpad.ac.id/new/s4/tenaga-pendidik/dr-asep-sholahuddin-mt/</Biodata_Dosen>
+        <Nama_Dosen>Dr. Asep Sholahuddin, MT</Nama_Dosen>
+        <Mengajar rdf:resource="&Matkul;Matkul21"/>
+        <Mengajar rdf:resource="&Matkul;Matkul22"/>
+        <Mengajar rdf:resource="&Matkul;Matkul23"/>
+        <Mengajar rdf:resource="&Matkul;Matkul24"/>
+        <Mengajar rdf:resource="&Matkul;Matkul25"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul1 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul1">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Kode_Matkul>D10G.62B2</Kode_Matkul>
+        <SKS>2 SKS</SKS>
+        <Deskripsi>Pembahasan Manusia sebagai Makhluk Pribadi yang Multi Dimen-sional menurut Filsafat Manusia,meliputi Ciri-ciri dasar manusia (yang membedakannya dengan binatang), dan bagaimana memahami sikap dan prilaku manusia, Pembahasan berbagai Teori tentang Sikap dan Prilaku Manusia (Teori Plato, Teori Psiko-Analisis Sigmund Freud, Teori Perangai C.G Jung, Teori Motivasi Prof. Abraham Maslow), Teori Sosiologi dan Filsafat Wayang, Pembahasan Teori Eksistensi Manusia, Kepri-badian (Aktualisasi Diri), Manusia Sebagai Makhluk Berbahasa/ Berkomunikasi (Etika Komunikasi), Manusia Sebagai Makhluk Berbudaya (Etika Umum dan Sopan Santun), dan manusia Sebagai makhluk Bekerja (Etika Profesi Atau Etos Kerja), Pembahasan Manusia Sebagai Makhluk Sosial, Proses Sosialisasi Manusia, Keluarga Sebagai Media Proses Sosialisasi, Teori-teori Hubungan Sesama Manusia, Bentuk-bentuk hubungan timbale Balik Antara manusia, dan Bagaimana MenghindarkanKonflik Antar Manusia, Pembahasan Konsep (Citra) Manusia Ideal Sejak Zaman Yunani, Romawi, Zaman Pertengahan di Eropa, Zaman Humanisme, dan Konsep Manusia Indonesia Yang Sempurna (Seutuhnya) yaitu Manusia Pancasila, Manusia Indonesia Seutuhnya, Manusia Berakhlak Mulia, manusia Berbudi Luhur</Deskripsi>
+        <Nama_Matkul>Etika Profesi</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen1"/>
+        <Diajar rdf:resource="&Matkul;Dosen2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul10 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul10">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Nama_Matkul>Data Warehouse</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Deskripsi>Mata kuliah ini mengajarkan tentang teori dan implementasi dari data ware-house yang mencakup arsitektur data warehouse, data marts, view material-ization, online analytical processing (OLAP) dan extraction-transforma-tion-loading (ETL). Dalam kuliah ini juga membahas tentang data ware-house ETL toolkit meliputi teknik praktis untuk extracting, cleaning, transforming dan delivering data, data warehouse environment (building the data warehouse). </Deskripsi>
+        <Kode_Matkul>D10G.6204</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen4"/>
+        <Diajar rdf:resource="&Matkul;Dosen5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul11 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul11">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Mata Kuliah ini membahas tentang data mining; demands, potential and ma-jor issues, teknik dalam data mining seperti klasifikasi, generalisasi, kesimpulan dan karakterisasi. Dalam kuliah ini juga dibahas tentang menemukan dan menganalisis pat-tern, trends and deviations, pemahaman data mining dalam sistem database lanjut maupun khusus, serta membahas tentang berbagai model-model data mining (decision trees, genetic algorithms, neural net, dll), data mining process (data preparation, defining a study, data cleaning, prediction, enabling data mining through data warehouse). Integrasi data mining tools dalam sys-tem database, distributed heteroge-neous database systems, aplikasi-aplikasi data mining dan isu-isu riset dalam data mining</Deskripsi>
+        <Kode_Matkul>D10G.7201</Kode_Matkul>
+        <Nama_Matkul>Data Mining</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen4"/>
+        <Diajar rdf:resource="&Matkul;Dosen5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul12 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul12">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Deskripsi>Kuliah ini membahas teknologi untuk mengembangkan aplikasi sistem penunjang keputusan (SPK), dimana pengambilan keputusan tidak hanya ditunjang oleh intuisi dari pimpinan melainkan juga ditunjang oleh hasil analisis dari kumpulan data-data yang ada. Topik-topik yang akan dibahas meliputi: Pembahasan teori-teori pengambilan keputusan (decision theory) dan operations research, yang bermanfaat bagi manajemen untuk membantu mengambil keputusan. Kemudian dilanjutkan dengan pem-bahasan konsep SPK, karakterisitik, komponen dan arsitektur SPK. Selanjutnya dibahas bagaimana mem-bangun suatu SPK. Kemudian dibahas topik-topik khusus pada SPK seperti: Sistem Penunjang Keputusan Ber-kelompok dan Data Warehouse. </Deskripsi>
+        <Kode_Matkul>D10G.52B1</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Decision Support System (Peminatan SISM)</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul13 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul13">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Machine Learning</Nama_Matkul>
+        <Deskripsi>Mata Kuliah ini mengajar Konsep dasar machine learning, Supervised learning, Supervised learning setup. LMS, Logistic regression. Perceptron. Exponential family, Generative learning algorithms. Gaussian discriminant analysis. Naive Bayes, Support vector machines, Model selection and feature selection, Ensemble methods: Bagging, boosting, Evaluating and debugging learning algorithms. Learning theory : bias/ variance tradeoff, union and Chernoff/ Hoeffding bounds, VC dimension, Worst case learning, practical advice on how to use learning algorithms. Unsupervised learning : Clustering K-means, EM, mixture of gaussians, factor analysis, PCA (principal components analysis), ICA (independent components analysis), Reinforcement learning and control : MDPs. Bellman equations, Value iteration and policy iteration, Linear quadratic regulation (LQR), LQG, Q-learning, Value function approximation, Policy search,  Reinforce, POMDPs.  </Deskripsi>
+        <Kode_Matkul>D10G.72C2</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen4"/>
+        <Diajar rdf:resource="&Matkul;Dosen5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul14 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul14">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <Deskripsi>Mata Kuliah ini membahas tentang : Tipe Data dan Abstract Data Type (ADT), Pemrograman Terstruktur (Fungsi / Prosedur). Algoritma dan bahasa C++,  Array, Record, Array of Record, Algoritma Sorting dan Searching dengan Array, Pengertian Pointer, Deklarasi Pointer to Integer dan Alokasi memori, Operasi Pada Pointer, Pointer to Record, Pengertian List berkait, Operasi Traversal List, Menambah di depan, dan belakang, Menghapus di depan dan  belakang.. Searching, Menambah di tengah, Menghapus di tengah, Operasi Traversal List, Menambah di depan, belakang dan tengah, Menghapus di depan, belakang dan tengah, Variasi List Berkepala, Variasi List Circular, Pengertian Tumpukan, Penyajian tumpukan dengan Array dan List, Operasi Push dan Pop, Pemakaian Tumpukan, Pengertian Antrian, Penyajian Antrian dengan Array dan List, Antrian berprioritas, Pengertian Multi List, Pengelolaan pegawai dengan multi List, Konsep Relasi, Istilah-istilah dalam pohon, Pohon Biner, Penyajian Pohon, Menambah data, Kunjungan InOrder, Kunjuungan PreOrder, Kunjungan PostOrder, Pohon Biner berbenang, Pohon dengan Array, Pengertian Sorting, Penyisipan langsung, Metoda Seleksi, merge Sort, Quick Sort, Pencaian berurutan, Pencarian biner, Pohon telusur. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.2201</Kode_Matkul>
+        <Nama_Matkul>Struktur Data</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul15 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul15">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Metode Numerik</Nama_Matkul>
+        <Kode_Matkul>D10A.3202</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang Persoalan numerik dan teori kesalahan: Interpolasi Lagrange, Newton, kesalahan interplasi, titik interpolasi berjarak sama, splines dan aproksimasi. Penyelesaian sistem linier dengan dekomposisi LU, perhitungan jumlah operasi. Penyelesai-an persmaan non linier: Bisection, new-ton, Regula falsi, Titik tetep, perhitungan kesalahan. Pengintegralan dan pendi-ferensialan numerik. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen5"/>
+        <Diajar rdf:resource="&Matkul;Dosen6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul16 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul16">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Mata kuliah ini membahas dasar-dasar logic programming dan aplikasinya dengan menggunakan Prolog. Topik-topik yang dibahas meliputi: Prolog programming, Horn clauses, resolution theorem proving, computing with predicate logic, constraint logic pro-gramming. </Deskripsi>
+        <Kode_Matkul>D10G.1201</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Logika Informatika</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul17 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul17">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <Kode_Matkul>D10G.2202</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Arsitektur &amp; Organisasi Komputer</Nama_Matkul>
+        <Deskripsi>Kuliah ini berisi pembahasan rinci komponen utama sistem komputer: prosesor, memory dan masukan/ keluaran. Sebagai patokan diadakan studi perbandingan sistem yang telah mapan. Penekanan ditujukan pada analisa dan teknik peningkatan kinerja (performance) dari sistem komputer. Topik-topik yang akan dibahas meliputi pengantar rancangan komputer; perspektif historis; Komponen dari sistem komputer, organisasi dasar mesin komputer; Kinerja dan biaya, pilihan dalam rancangan; Realisasi organisasi sistem komputer: RISC; Implementasi dan analisa perangkat instruksi pada contoh-contoh organisasi sistem komputer yang diberikan; Rancangan prosesor: data path dan unit pengendali prosesor, micro program-ming dan hardwired control; Rancangan memory: Cache memory; Pipelining; Masukan / Keluaran (I/O). Superscalar architecture and their ad-vantages; branch prediction and its utility; the costs and benefits of prefetching; multithreading; the rel-evance of scalability to performance; Architecture for networks and distrib-uted systems; Impact of architectural issues on distributed algorithms; par-allel architectures. 
+ 
+</Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul18 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul18">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.2203</Kode_Matkul>
+        <Deskripsi>Kuliah ini membahas konsep dasar dari manajemen basis data yang menyangkut aspek pemodelan dan perancangan, bahasa dan fasilitas, implementasi dan penggunaan suatu basis data. Topik-topik yang akan dibahas: Arsitektur dan konsep dari sistem manajemen basis data (SMBD); Penyimpanan dan organisasi berkas; Indexing; Data modeling mengguna-kan model entity-relationship; Data modeling menggunakan model relasional; Bahasa query formal; Aljabar relasional; Kalkulus relasional; SQL dan QBE; Functional dependencies, dan normalisasi untuk basis data relasional; Algoritma dan proses desain basis data relasional; Pemrosesan dan optimisasi query; Transaksi, concurrency control; recov-ery, security; Basis data Client-Server. 
+</Deskripsi>
+        <Nama_Matkul>Sistem Database I</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul19 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul19">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <Deskripsi>Genealogy of object oriented languages: structured programming, procedural programming. Abstract data types, encapsulation, Typed and untyped languages, Coupling and cohesion, Classes and objects. Class members: Data members (fields) and member functions (methods). Class member visibility (private, public, protected). Class variables and instance variables, class methods and instance methods. Service methods and support methods. Class hierarchies. Single and multiple inheritance, Inter-class relationships, Constructors and destructors. Object initialization, memory management. Garbage collection. Methods and messages. Method signatures. Method and operator overloading. Method overriding. Abstract classes. Dynamic (late) binding. Polymorphism, Software reuse. Subclasses (derived classes), Super classes (base classes). Invocation of superclass, methods and constructors. Objects vs. variables. Classes vs. types. Delegation Collection classes. Class libraries, Unified Modelling Language (UML). Use case diagrams: actors, system boundary, &lt;&lt;uses&gt;&gt; and &lt;&lt;extends&gt;&gt;. Scenarios. Class diagrams: associations, aggregation,dependency, and inheritance. Object interaction diagrams, object state transition diagrams. Object constraint language(OCL): invariants, preconditions, post conditions. Design patterns. Pattern documentation: motivation, prerequisites, structure, participants and consequences. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.3203</Kode_Matkul>
+        <Nama_Matkul>Pemrograman Berorientasi Objek</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen7"/>
+        <Diajar rdf:resource="&Matkul;Dosen8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul2 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul2">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Nama_Matkul>Sistem Informasi</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.4203</Kode_Matkul>
+        <Deskripsi>Tujuan mata kuliah ini adalah untuk mengetahui bagaimana mengelola divisi sistem informasi/teknologi informasi di sebuah organisasi. Topik mencakup: perencanaan sistem informasi, manajemen pengembangan sistem, manajemen pemeliharaan, manajemen implementasi, help desk, user support service, operasi data cen-tre, manajemen infrastruktur, manajemen inventori, kontrol dan evaluasi sistem informasi, akuisisi dan procurement sumber daya sistem informasi, manajemen personalia sistem informasi, end-user computing. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul20 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul20">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <SKS>2 SKS</SKS>
+        <Deskripsi>Mata Kuliah ini membahas tentang Pendahuluan active database,  store procedure trigger, temporal database, pemanfaatan query optimization, heuristic optimization, cost based optimization, database terdistribusi, storing dan query  database terdistribusi, concurrency control, recovery database terdistribusi, mirroring, replication, konfigurasi replication, mirroring vs replication database, keamanan database, user priveladge, manajemen user, backup, migrasi sharing database, konstruksi objek dalam ordbms, indentity objek, metoda penyimpanan dan akses, query processing, data warehouse, Online analytical processing (OLAP), OLAP query, database design untuk OLAP, pengenalan data mining, cloud database, virtual machine image, database sebagai sebuah layanan.  </Deskripsi>
+        <Nama_Matkul>Sistem Database II</Nama_Matkul>
+        <Kode_Matkul>D10G.3204</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul21 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul21">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Mata kuliah ini memperkenalkan teknologi informasi sebagai bagian dari upaya memanfaatkan informasi yang melandasi pengembangan kreativitas secara etis. Materi bahasan: Pengenalan terhadap sistem dan organisasi computer, perangkat keras dan lunak, jaringan komunikasi (termasuk internet), implikasi penggunaan teknologi informasi dalam berbagai aspek kehidupan manusia, kemampuan berpikir komputasional melalui dasar pemrograman prosedural dalam satu bahasa pemrograman yang dipilih. </Deskripsi>
+        <Nama_Matkul>Pengantar Teknologi Komputer &amp; Informatika</Nama_Matkul>
+        <Kode_Matkul>D10G.1203</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen10"/>
+        <Diajar rdf:resource="&Matkul;Dosen9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul22 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul22">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Penjelasan matakuliah kecerdasan buatan (KB), Jenis-jenis KB, Perkembangan KB, Kalkulus predikat, jaringan semantik, Frame, Script, Searching dengan Bread First Search (BFS), Searching dengan Depth First Search (DFS), Heuristic search, Konsep IF THEN pada sistem pakar, Struktur pohon, Teori Ketidak pastian, Software EXSYS, Teknik Pembuatan s/w, Sistem Pakar, Aplikasi software sistem pakar, Gambaran umum neural network, Neuron dan Fungsi aktivasi, Algoritma packpropagation, Software Matlab pada Neural Network, Solusi  NN dengan Matlab, Gambaran umum tentang fuzzy logic, Himpunan Fuzzy, Metode-metode pada Fuzzy, Software Matlab pada Fuzzy Logic, Solusi Fuzzy dengan Matlab, Struktur Umum  algoritma genetika, Komponen-komponen Utama pada algoritma genetika, Seleksi pada algoritma genetika, Rekombinasi, Mutasi dan Algoritma Genetika sederhana. </Deskripsi>
+        <Kode_Matkul>D10G.4201</Kode_Matkul>
+        <Nama_Matkul>Artificiall Intelligence</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul23 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul23">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Kode_Matkul>D10G.62B1</Kode_Matkul>
+        <Nama_Matkul>Sistem Informasi Multimedia (Peminatan SISM)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Mata Kuliah ini membahas tentang Topik-topik: Sound and audio, image and graph-ics, animation and video. Multimedia standards (audio, music, graphics, image, telephony, video, TV); Capac-ity planning and performance issues; Input and output devices (scanners, digital camera, touch-screens, voice-activated); MIDI keyboards, synthesizers; Storage standards (Magneto Optical disk, CD-ROM, DVD); Multimedia serv-ers and file systems; Tools to support multimedia development. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul24 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul24">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Nama_Matkul>Robotika (Peminatan SCSG)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.52C2</Kode_Matkul>
+        <Deskripsi>Introduction to robotics, Robot vehicles and base, Mechanical articulations: arms, wrist and effector, Power transmission: gear, belt and bearing, Actuators: pneumatic, hydraulic and electronic, Internal and external sensors, Control, algorithm and application programming, Kinematics, Material, applications and safety. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul25 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul25">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Kode_Matkul>D10G.72C1</Kode_Matkul>
+        <Nama_Matkul>Kapita Selekta SCSG (Peminatan SCSG)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Kuliah ini membahas tentang implementasi, studi kasus serta membahas tentang perkembangan mutakhir dari berbagai model system cerdas dan system grafika yang saat ini banyak dipergunakan dalam dunia industri, hiburan, komunikasi dan pemerintahan. Kuliah ini juga membahas tentang perkembangan dari perangkat keras maupun perangkat lunak yang menerapkan system cerdas dan system grafika dalam operasionalisasinya. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul26 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul26">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Nama_Matkul>Algoritma Pemrograman</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.1202</Kode_Matkul>
+        <Deskripsi>Mata kuliah ini membahas : pengenalan algoritma. bahasa pemrograman, struktur dan ciri-ciri program spesifikasi formal dari pada sintaks dan semantiks. Pemrosesan daftar/list, manipu-lasi string, deskripsi data, type-type data, opearsi, pernyataan type dan program terstruktur dengan penggunaan bahasa pemrograman. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen10"/>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul27 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul27">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Kuliah ini membahas beberapa metode perancangan algoritma untuk menyelesaikan masalah-masalah seperti metode iterative, divide and conquer, dynamic programming, greedy, backtracking, branch and bound. Pembahasan setiap algoritma disertai dengan dua aspek yang terpenting yaitu correctness dan com-plexity. Topik-topik yang akan dibahas meliputi Mesin Turing; struktur data dasar: priority queue, heap, linked lists; Notasi big Oh, big theta, big omega, recursion, Master&apos;s Theorem; Algoritma-algoritma sorting: insertionSort, selectionSort, Bose-Nelson Sort, HeapSort, QuickSort, MergeSort, RadixSort, CountingSort, order statistik; Dynamic programming: matrix chain multiplication, LCS; Algoritmaalgoritma Greedy: Knap-sack problem, TSP, Huffman codes; Algoritma-algoritma pada graphs: BFS, DFS, connectivity, MST, shortest path, topological sort, maximum flow; Operasi-operasi pada matriks; Com-putational geometry; NP-complete-ness, approximation algorithms.</Deskripsi>
+        <Kode_Matkul>D10G.4205</Kode_Matkul>
+        <Nama_Matkul>Analisis Algoritma</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen10"/>
+        <Diajar rdf:resource="&Matkul;Dosen12"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul28 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul28">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Nama_Matkul>interaksi Manusia &amp; Komputer</Nama_Matkul>
+        <Deskripsi>Kuliah membahas interaksi manusia dengan komputer dari berbagai sudut pandang antara lain: Interaksi manusia dengan komputer-historis, intelektual dan sosial. Membangun system interaksi, termasuk disain, metode evaluasi, dan alat-alat pengembangan. Pengalaman interaksi, melalui berbagai alat sensor termasuk pandangan, sentuhan, gerak tubuh, pembicaraan, dan bahasa, Teoriteori pemrosesan informasi dari manusia dengan computer dan masalah adaptasi. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.6201</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen10"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul29 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul29">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Kode_Matkul>D10G.7202</Kode_Matkul>
+        <Deskripsi>Pada mata kuliah Projek Perangkat Lunak II mahasiswa akan mempelajari materi lanjutan dari projek perangkat lunak I mengenai pembuatan aplikasi perangkat lunak </Deskripsi>
+        <SKS>2 SKS</SKS>
+        <Nama_Matkul>Proyek Perangkat Lunak II</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen10"/>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul3 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul3">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Nama_Matkul>Metodologi Penelitian</Nama_Matkul>
+        <Deskripsi>Kuliah ini bertujuan untuk mem-perkenalkan konsep-konsep dalam melakukan penelitian, terutama pada penelitian sosial, yang mencakup pembuatan rancangan penelitian, perumusan masalah, jenis data, metode pengukuran, teknik penggalian infor-masi/elisitasi, cara melakukan sam-pling, teknik uji coba, teknik pembuatan kuesioner, probabilitas, teknik-teknik penelitian kualitatif &amp; kuantitatif yang mencakup survey, polling, focus group discussion, metode delphi, wawancara mendalam, juga aneka teknik pengolahan data, etika dalam penelitian, dsb. Penekanan akan diberikan pada pentingnya teori dan metodologi dalam penelitian sistem informasi, misalnya dalam bidang interaksi manusia komputer, e-com-merce, ekonomi informasi, manajemen/ perencanaan sistem informasi, audit sistem informasi, proses requirement dalam software engineering, dsb. </Deskripsi>
+        <Kode_Matkul>D10G.5204</Kode_Matkul>
+        <SKS>2 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen1"/>
+        <Diajar rdf:resource="&Matkul;Dosen2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul30 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul30">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Nama_Matkul>Jaringan Komputer</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Mata Kuliah ini yaitu tentang Pengenalan model referensi ISO-OSI untuk perancangan ketiga lapisan terbawah jaringan komputer: physical layer, data link layer, network layer. Topik- topik yang akan dibahas meliputi: Arsitektur jaringan dan protokol hirarkis; Referensi model OSI dan model pelayanan; Contoh realisasi jaringan komputer; Lapisan fisik: prinsip dasar komunikasi data dan media transmisi, transmisi ana-log dan dijital, data encoding, multi-plexing dan polling; Lapisan data link: konfigurasi dan manajemen link, deteksi dan koreksi kesalahan; Pengaturan flow data link: protokol stop/wait dan sliding window; Jaringan radio dan satelit; Lapisan Jaringan: algoritma routing, X.25, dan internetworking; Jaringan lokal: teknologi dan topologi jaringan, Ethernet dan bakuan IEEE 802.3, To-ken Ring dan bakuan IEEE 802.4. 
+ 
+</Deskripsi>
+        <Kode_Matkul>D10G.4202</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+        <Diajar rdf:resource="&Matkul;Dosen13"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul31 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul31">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <SKS>3 SKS </SKS>
+        <Kode_Matkul>D10G.62B2</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini mempelajari tentang Pengenalan semantic web, perbandingan web vs semantic web, Web 1.0, web 2.0, web 3.0, ilustrasi dan contoh sederhana, RDF (Resource Description Framework), Simple triple semantic, graphic representation of triples, N-Triples, N3, RDF/XML, RDF Query Engines, SPARQL, Ontology OWL(Web Ontology Language), Counting, set, restriction in OWL, Tool, Engine, API for Programming:  Protege Ontology Editor, Protege OWL, OWL Jena API, semantic org API, Description Logic : Web rule &amp; Inference, DL reasoning, Social Networking and Semantic: Modeling social network data, ontological representation of social individuals, Study case &amp; Application Demo : Problem example and application, student cases &amp; presentations </Deskripsi>
+        <Nama_Matkul>Semantik Web (Peminatan SISM)</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul32 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul32">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Nama_Matkul>Mobile Computing (Peminatan JKKD)</Nama_Matkul>
+        <Kode_Matkul>D10G.62D2</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Kuliah ini membahas tentang wireless networking (keuntungan dan kerugian), karakteristik pancaran radio (fading dan multipath), pengenalan transmisi digital : bit-rate dan singnaling rate, transmisi synchronous, pulse shaping, line coding, perhitungan bit-error probabilitas. Kuliah ini juga membahas tentang narrowband digital modulation (binary dan multilevel), amplitude-shift keying (ASK), frequency shift keying (FSK), phase shift keying (PSK), wideband modulation techniques meliputi direct sequence spread spec-trum adaptive equalization orthogonal frequency division multiplex , MAC (Me-dium Access Control) untuk digital cel-lular system seperti GSM, protocol wire-less LANs seperti IEEE 802.11 dan HIPERLAN I dan II, hidden dan expose terminal, Collision Avoidance (RTS-CTS) protocols, serta protocol supporting mobility (mobile network layer pro-tocols/mobile-IP, DHCP, mobile trans-port layer protocols /mobile-TCP dan WAP). </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul33 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul33">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Mata kuliah ini bertujuan untuk memberikan pemahaman implemen-tasi tentang perkembangan sistem jaringan computer yang dipergunakan dalam berbagai bidang teknologi informasi dan komunikasi. Mata kuliah ini juga membahas tentang trend perkembangan system jaringan saat ini (bluetooth technologies, wire-less tecnologies, dll). </Deskripsi>
+        <Kode_Matkul>D10G.72D1</Kode_Matkul>
+        <Nama_Matkul>Kapita Selekta JKKD (Peminatan JKKD)</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul34 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul34">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Nama_Matkul>Enterpreneurship</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Kode_Matkul>D10G.5202</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen12"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul35 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul35">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Kode_Matkul>D10G.5203</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Rekayasa Perangkat Lunak</Nama_Matkul>
+        <Deskripsi>Pembahasan mengacu pada siklus pengembangan perangkat lunak yang terdiri atas tahapan perencanaan, analisa, perancangan, pembuatan program, pengujian dan pemeliharaan. Bentuk perkuliahan dipadukan dengan proyek semester yang sederhana (proyek yang lebih ekstensif akan diberikan pada mata kuliah Proyek perangkat Lunak). Setiap kelompok peserta diharuskan membangun sebuah perangkat lunak, yang telah didefinisikan pada awal semester. Materi yang akan diberikan meliputi Metodologi pengembangan perangkat lunak; Computer aided soft-ware engineering (CASE) tools; UML; Perencanaan proyek pengembangan perangkat lunak; Analisis permasalahan dan kebutuhan pemakai; Penyusunan spesifikasi perangkat lunak; Prinsip dasar perancangan perangkat lunak; Teknik perancangan berorientasikan pada proses, data, obyek; Permasalahan dalam penulisan program; Software quality assurance; Ukuran mutu perangkat lunak; Pengujian perangkat lunak; Pemeliharaan perangkat lunak. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen12"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul36 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul36">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <Deskripsi>Kuliah ini akan membahas organisasi, struktur dan konsep-konsep dari sistem pengoperasian komputer. Topik-topik yang akan dibahas meliputi Pendahuluan: sejarah, konsep dasar, dan struktur; Proses: model, inter-process communi-cation, schedulling; Memory Manage-ment: swapping, virtual memory, page replacement, paging, working set model, segmentation; File System: file and directory, implementation, security, protection; Input/Output; Dead-lock; Distributed Systems. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Sistem Operasi</Nama_Matkul>
+        <Kode_Matkul>D10G.3201</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen13"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul37 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul37">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <Nama_Matkul>Pemrograman Web</Nama_Matkul>
+        <Kode_Matkul>D10G.3202</Kode_Matkul>
+        <Deskripsi>Kuliah ini membahasa tentang pengenalan konsep internet dan pengertian multimedia, HTML, Page generator tool, client-side-script (VBScript), JavaScript), server-side-script (Perl, PHP, ASP, CFML), Pengaksesan basisdata pada web, applet dalam bahasa java. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen13"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul38 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul38">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Deskripsi>Mata Kuliah ini akan membahas keempat tipe grammar dan mesin-mesin untuk mengenal masingmasing grammar. Kuliah ini juga mencakup masalah-masalah komplek-sitas komputasi, termasuk persoalan NP dan P. Topik-topik yang akan dibahas meliputi Automata berhingga (NFA dan DFA); Ekspresi regular; Himpunan regular dan sifat-sifatnya; Minimisasi automata berhingga; De-cision problems untuk bahasa regular; Context-free grammars dan bentuk-bentuk normal; Pushdown automata; Bahasa context-free dan sifat-sifatnya; Decision problems untuk bahasa con-text free; Mesin Turing standar dan modifikasi-nya; Bahasa context-sensi-tive; Undecidability. 
+ 
+</Deskripsi>
+        <Kode_Matkul>D10G.6202</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Teori Bahasa &amp; Automata</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen13"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul39 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul39">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Deskripsi>Pada mata kuliah Projek Perangkat Lunak 1 mahasiswa akan mempelajari tahapan pembuatan aplikasi perangkat lunak dengan menerapkan konsep metodelogi pengembangan rekayasa perangkat lunak SDLC (Software Development Life Cycle)</Deskripsi>
+        <SKS>2 SKS</SKS>
+        <Nama_Matkul>Proyek Perangkat Lunak I</Nama_Matkul>
+        <Kode_Matkul>D10G.6203</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen14"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul4 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul4">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.5204</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini mambahas tentang Map Projection and Coordinate System, Map digitizing, GPS, Remote Sensing, Thematic Map, Spatial Analysis, 3-D Analysis, Community-based mapping, location-based services.  </Deskripsi>
+        <Nama_Matkul>Sistem Informasi Geografi</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul40 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul40">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Kode_Matkul>D10G.5201</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini mambahas tentang Konsep Dasar Ilmu dan Teknologi Informasi; Dasar Sistem Representasi Bilangan; Grafika Komputer dan Informasi Visual; Kompresi Data; Band-width dan Konsep Informasi; Transmisi Data dan Teknologi Penyimpanan Data; Konsep dan Jaringan Komputer; Dampak Teknologi Informasi dan Perkembangannya. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Telematika</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul41 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul41">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Kode_Matkul>D10G.52D1</Kode_Matkul>
+        <Nama_Matkul>Sistem Keamanan Jaringan (Peminatan JKKD)</Nama_Matkul>
+        <Deskripsi>Kuliah ini membahas mengenai keamanan komputer. Topik yang dibahas mencakup antara lain: manajemen keamanan: aset informasi, kebijakan, prosedur, manajemen resiko; model &amp; tingkat keamanan pada: jaringan, peralatan, aplikasi, sistem operasi; kontrol akses, keamanan dalam pengembangan aplikasi; keamanan operasional; keamanan fisik; keamanan internet, jaringan dan telekomunikasi; disaster recovery plan dan business continu-ity plan; kejahatan komputer, investigasi kejahatan komputer. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul42 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul42">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Topik dalam mata kuliah ini membahas tentang interaksi Client-server; socket interface; Domain Name Systems; e-mail representation dan transfer; file transfer dan remote file access; security dan aspek legalitas dari manajemen jaringan, web-servers dan teknologinya; CGI dan Java teknologi. </Deskripsi>
+        <Nama_Matkul>Manajemen Jaringan (Peminatan JKKD)</Nama_Matkul>
+        <Kode_Matkul>D10G.62D1</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul43 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul43">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Kode_Matkul>D10G.72D2</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang Topik yang akan dibahas tentang manajemen jaringan (MIB, SNMP, RMON), VPN (Virtual Private Network), Mobile IP, IP next generation dan Security jaringan. </Deskripsi>
+        <Nama_Matkul>Jaringan Komputer Lanjut (Peminatan JKKD)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen15"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul44 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul44">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Tidak Ada Informasi mengenai Mata kuliah ini</Deskripsi>
+        <Nama_Matkul>Agama</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Kode_Matkul>UNX10.1001</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul45 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul45">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Tidak Ada Informasi mengenai mata kuliah ini</Deskripsi>
+        <SKS>2 SKS</SKS>
+        <Kode_Matkul>UNX10.1002</Kode_Matkul>
+        <Nama_Matkul>Pancasila</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul46 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul46">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Mata kuliah ini membahas politik bahasa, ragam bahasa,  dan Ejaan yang disempurnakan (EYD), bentukan kata dan diksi, kalimat dan paragraf dan karya ilmiah. </Deskripsi>
+        <Nama_Matkul>Bahasa Indonesia</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Kode_Matkul>UNX10.1003</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul47 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul47">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Deskripsi>Mata kuliah ini mendorong perkembangan kebugaran dan kreativitas mahasiswa dalam rangka menumbuhkan rasa kecintaan terhadap almamater dan mengembangkan karakter diri sebagai mahasiswa</Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>UNX10.1004</Kode_Matkul>
+        <Nama_Matkul>Olah Raga, Kebugaran dan Kreatifitas (OKK)</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul48 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul48">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">1</Semester>
+        <Kode_Matkul>D10A.1201</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Kalkulus I</Nama_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang  Fungsi, Grafik, Limit, Kalkulus diferensial, Penerapan turunan, Fungsi Transenden, Integral, Teknik pengintegralan, Aplikasi integral. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen17"/>
+        <Diajar rdf:resource="&Matkul;Dosen18"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul49 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul49">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <SKS>2 SKS</SKS>
+        <Nama_Matkul>Bahasa Inggris I</Nama_Matkul>
+        <Deskripsi>Mata kuliah ini membahas dan melatih kemampuan membaca: menemukan gagasan utama, mengetahui makna kosa kata sesuai konteks, dan mendapatkan informasi eksplisit dan implisit; membahas dan melatih membuat pola kalimat dasar dan kalimat majemuk dalam Bahasa Inggris; dan membahas dan melatih membuat paragraf dengan sistematika tulisan akademik. 
+ 
+</Deskripsi>
+        <Kode_Matkul>UNX10.2001</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul5 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul5">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Nama_Matkul>Grafika Komputer</Nama_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang Topik-topik: Pengantar grafika komputer; Primitif keluaran: algoritma dan metoda pembuatan primitif; Transformasi; Windowing dan Clipping; Kurva: Bezier, B-spline; Realism: Hidden line elimination, hidden surface removal, model Illuminasi, Gouroud Shading, Phong Shading, dithering, fractal ob-jects, model-model warna; Geometric Modeling; Ray Tracing; Pengantar Antarmuka Grafika. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.52C1</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul50 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul50">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <SKS>2 SKS</SKS>
+        <Deskripsi>Tidak ada informasi mengenai mata kuliah ini</Deskripsi>
+        <Nama_Matkul>Kewarganegaraan</Nama_Matkul>
+        <Kode_Matkul>UNX10.2002</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul51 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul51">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <Deskripsi>Mata kuliah ini membahas Topik-topik  meliputi: Barisan dan deret tak hingga, Irisan kerucut, Sistem-sistem koordinat, Vektor dan geometri analitik ruang, Fungsi dengan dua atau tiga peubah, Turunan parsial, Turunan berarah, In-tegral lipat, Aplikasi integral lipat. </Deskripsi>
+        <Kode_Matkul>D10A.2201</Kode_Matkul>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Kalkulus II</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen17"/>
+        <Diajar rdf:resource="&Matkul;Dosen18"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul52 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul52">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <SKS>3 SKS</SKS>
+        <Deskripsi>Mata Kuliah ini membahas tentang fenomena, bagan, grafik dan lain-lain yang berhubungan dengan listrik-magnet, gelombang, optika dan pendahuluan Fisika Mod-ern. Topik yang akan dibahas meliputi: medan dan potensial listrik, kapasitor, dielektrik, rangkaian listrik arus searah, medan magnet, induksi magnetik, induktansi, rangkaian listrik arus bolak-balik, persamaan Maxwell, kemagnetan, sifat cahaya, polarisasi, interferensi., difraksi, optika geometri, fotometri, spektroskopi, laser, holografi, model atom Bohr, sinar-X, radioaktivitas. </Deskripsi>
+        <Kode_Matkul>D10H.2201</Kode_Matkul>
+        <Nama_Matkul>Fisika Informatika</Nama_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen20"/>
+        <Diajar rdf:resource="&Matkul;Dosen21"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul53 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul53">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">2</Semester>
+        <Deskripsi>Mata Kuliah ini membahas tentang dasar-dasar statistik yang dapat membantu peserta kuliah untuk menyimpulkan hasil interpretasi data dan mengambil keputusan. Topik-topik yang akan dibahas antara lain pendahuluan yang mencakup pengenalan beberapa elemen statistik; Interpretasi data; Konsep peluang: eksperimen acak, peubah acak, kejadian bebas, peluang bersyarat, teorema Bayes; Sebaran diskrit dan kontinyu; Sebaran sampling; Uji hipotesa statistik; Analisis varian; Regresi sederhana. Dalam perkuliahan paket program statistik akan dipergunakan sebagai pendukung. 
+ 
+</Deskripsi>
+        <SKS>2 SKS</SKS>
+        <Nama_Matkul>Statistika</Nama_Matkul>
+        <Kode_Matkul>D10E.2201</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen22"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul54 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul54">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <Nama_Matkul>Aljabar Linear</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10A.3201</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang Topik-topik : Sistem persamaan linier dan matriks; Determinan; Ruang vektor; Ruang hasil kali dalam; Nilai eigen dan vektor eigen; Transformasi linier; Ruang vektor kompleks. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen17"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul55 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul55">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Deskripsi>Mata Kuliah ini membahas tentang menganalisa suatu wacana (teks) dengan menyebutkan gagasan utamanya dan gagasan pendukung-nya, dan mampu menulis Laporan Teknis (report writing) dengan mempergunakan bahasa Inggris yang baik dan benar. Topik yang akan dibahas meliputi: Reading strategies, Basic writing techniques, Latihan yang berupa developing an effective style, planning and organizing essay, out-lining and diagramming, paragraph analysis and referencing skills. 
+ 
+</Deskripsi>
+        <SKS>2 SKS</SKS>
+        <Nama_Matkul>Bahasa Inggris II</Nama_Matkul>
+        <Kode_Matkul>UNX10.4001</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen23"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul56 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul56">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Nama_Matkul>Operasional Riset</Nama_Matkul>
+        <Deskripsi>Mata kuliah ini membahas konsep dasar riset operasi, metode riset operasi, serta teknik dan analisis yang diperlukan untuk pengambilan keputusan dengan meng-gunakan metode-metode kuantitatif. </Deskripsi>
+        <Kode_Matkul>D10A.4201</Kode_Matkul>
+        <SKS>2 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen24"/>
+        <Diajar rdf:resource="&Matkul;Dosen25"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul57 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul57">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">4</Semester>
+        <Nama_Matkul>Kecakapan Antar Personal</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Kode_Matkul>D10G.4204</Kode_Matkul>
+        <Deskripsi>Kuliah ini membahas kecakapan per-sonal dan antar personal yang di-butuhkan dari seorang sarjana komputer/teknologi informasi dalam bekerja di bidangnya. Kecakapan yang dibahas didasarkan atas ukuran organisasi dan jenis organisasi itu. Topik-topik yang dibahas antara lain, cara mengatur tugas personal, cara bekerja sendiri, cara mendengar, cara bekerja secara efektif, cara mem-presentasikan laporan kerja, cara menulis, cara melatih orang lain (bawahan), dll. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen27"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul58 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul58">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Kode_Matkul>D10G.7203</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang model manajemen 	klasik,  
+Peran-peran dalam MP, struktur manajemen organisasional / enterprise, kerangka kerja MP, alat bantu MP, Perencanaan proyek, perencanaan dan evaluasi, work breakdown structure (WBS), penjadwalan task, estimasi usaha (effort estimation), estimasi biaya, teknik estimasi biaya (cocomo, activity base costing, dll), alokasi sumber daya, manajemen risiko, pembuatan proposal proyek, tender dan aspek legal proyek, mempersiapkan aspek legal dalam tender, dokumen kontrak, organisasi dan personel proyek, struktur organisasi, posisi, tanggung jawab dan wewenang, komunikasi formal dan informal, project staffing, pelatihan personil, pengembangan karir, dan evaluasi, manajemen rapat (meeting  management), membangun dan memotivasi tim, conflict resolution, pengendalian proyek, pengendalian perubahan, pelaporan dan monitoring, analisis dan pengukuran hasil, recovery dan koreksi, penghargaan dan disiplin, standar performansi 
+ 
+</Deskripsi>
+        <Nama_Matkul>Manajemen Project</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen28"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul59 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul59">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Deskripsi>Tidak ada informasi mengenai mata kuliah ini</Deskripsi>
+        <Kode_Matkul>UNX10.7001/02</Kode_Matkul>
+        <Nama_Matkul>Magang - KKN</Nama_Matkul>
+        <SKS>2 SKS</SKS>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul6 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul6">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <Kode_Matkul>D10G.62C1</Kode_Matkul>
+        <Nama_Matkul>Pengolahan &amp; Analisis Citra Digital</Nama_Matkul>
+        <Deskripsi>Image sampling and quantization, color, point operations, segmentation, morphological image processing, linear image filtering and correlation, image transforms, eigenimages, multiresolution image processing, noise reduction and restoration, feature extraction and recognition tasks, image registration. Emphasis is on the general principles of image processing. Implementing and investigating image processing algorithms</Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul60 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul60">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">8</Semester>
+        <Deskripsi>Tidak Ada Informasi Mengenai Mata Kuliah Ini</Deskripsi>
+        <Nama_Matkul>Seminar</Nama_Matkul>
+        <SKS>1 SKS</SKS>
+        <Kode_Matkul>UNX10.8001</Kode_Matkul>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul61 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul61">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">8</Semester>
+        <Kode_Matkul>UNX10.8002</Kode_Matkul>
+        <Deskripsi>Tidak ada informasi mengenai mata kuliah ini</Deskripsi>
+        <SKS>7 SKS</SKS>
+        <Nama_Matkul>Tugas Akhir</Nama_Matkul>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul62 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul62">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">7</Semester>
+        <Kode_Matkul>D10G.72B1</Kode_Matkul>
+        <Nama_Matkul>Kapita Selekta SISM (Peminatan SISM)</Nama_Matkul>
+        <Deskripsi>Mata kuliah ini membahas tentang implementasi dan studi kasus serta penerapannya tentang teori-teori system informasi dan rekayasa perangkat lunak dalam dunia bisnis, pemerintahan dan riset serta membahas tentang implementasi dari berbagai software alat bantu (tools) untuk membangun system informasi dari pengembangan system yang simple sampai yang complex. </Deskripsi>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen29"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul63 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul63">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Nama_Matkul>Sistem Terdistribusi (JKKD)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10G.52D2</Kode_Matkul>
+        <Deskripsi>Pengenalan model referensi ISO-OSI untuk perancangan keempat lapisan teratas: transport, sesi, presentasi, dan aplikasi. Topik-topik yang akan dibahas meliputi Lapisan Transport: aspek-aspek perancangan, pengaturan hubungan; Lapisan Sesi: aspek-aspek perancangan, Remote Procedure Call; Lapisan Presentasi: aspek-aspek perancangan, teknik kompresi data, kriptografi; Lapisan Aplikasi: aspek-aspek perancangan, pemindahan berkas, akses, dan manajemen, surat elektronik, terminal virtual, aplikasi lainnya; Bakuan-bakuan lainnya: SNA, TCP/IP; Sistem Terdistribusi: arsitektur, perangkat-lunak, sistem komunikasi, dan aplikasi. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen29"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul7 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul7">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">3</Semester>
+        <Nama_Matkul>Matematika Diskrit</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Kode_Matkul>D10A.3203</Kode_Matkul>
+        <Deskripsi>Topik-topik yang akan dibahas meliputi: Logika proposisi, Logika predikat, Teori himpunan, Fungsi, Barisan, Deret, Pertumbuhan fungsi, Algoritma, Kompleksitas algoritma, Teori bilangan, Metode pembuktian, Induksi Matematik, Prinsip kandang burung, Permutasi, Kombinasi., Relasi beserta sifatsifat dan aplikasinya, Penutup relasi, Relasi ekivalen, Terurut parsial, Terurut total, Relasi rekurensi, fungsi Pembangkit, Graf, Isomorfisma graf, Keterhubungan graf, Komponen, Lintasan, Sirkuit, Lintasan dan Sirkuit Euler, Lintas dan Sirkuit Hamilton, Lintasan Terpendek, Graf Planar, Pewarnaan graf, Pohon, Hutan, Pohon perentang, Pohon perentang minimum, cut set. </Deskripsi>
+        <Diajar rdf:resource="&Matkul;Dosen3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul8 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul8">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">5</Semester>
+        <Kode_Matkul>D10G.52B2</Kode_Matkul>
+        <Deskripsi>Mata Kuliah ini membahas tentang Dasar-dasar kriptografi meliputi: block ciphers and DES (Data Encryp-tion Standard), AES (Advanced En-cryption Standard), public-key cryptosystems, key management, digital signatures, authentication proto-cols. Aplikasi kriptografi untuk berbagai aspek information security. </Deskripsi>
+        <Nama_Matkul>Kriptografi (Peminatan SISM)</Nama_Matkul>
+        <SKS>3 SKS</SKS>
+        <Diajar rdf:resource="&Matkul;Dosen3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#Matkul9 -->
+
+    <owl:NamedIndividual rdf:about="&Matkul;Matkul9">
+        <rdf:type rdf:resource="&Matkul;Matkul"/>
+        <Semester rdf:datatype="&xsd;string">6</Semester>
+        <SKS>3 SKS</SKS>
+        <Nama_Matkul>Soft Computing</Nama_Matkul>
+        <Deskripsi>Introduction, Fundamental concept, Evolution of Neural Networks, Basic Models of Artificial Neural Networks, Important Terminologies of ANNs, McCulloch-Pitts Neuron, Linear Separability, Hebb Network. Supervised Learning Network: Perceptron Networks, Adaline, Multiple Adaptive Linear Neurons, Back-Propagation Network, Radial Basis Function Network. Associative Memory Networks: Training Algorithms for Pattern Association, Autoassociative Memory Network, Heteroassociative Memory Network, Bidirectional Associative Memory, Hopfield Networks, Iterative Autoassociative Memory Networks, Temporal Associative Memory Network. Unsupervised Learning Networks: Fixed weight Competitive Nets, Kohonen Self-Organizing Feature Maps, Learning Vector Quantization, Counter propagation Networks, Adaptive Resonance Theory Networks, Special Networks. Introduction to Classical Sets and Fuzzy sets, Classical Relations and Fuzzy Relations, Tolerance and Equivalence Relations, Noninteractive Fuzzy sets, Membership Functions: Fuzzification, Methods of Membership Value Assignments, Defuzzification, Lambda-Cuts for Fuzzy sets and Fuzzy Relations, Defuzzification Methods. Fuzzy Arithmetic and Fuzzy Measures: Fuzzy Rule Base and Approximate Reasoning: Truth values and Tables in Fuzzy logic, Fuzzy Propositions, Formation of Rules, Decomposition and Aggregation of rules, Fuzzy Reasoning, Fuzzy Inference Systems (FIS), Fuzzy Decision Making, Fuzzy Logic Control Systems. Introduction Genetic Algorithm, Basic Operators and Terminologies in GAs, Traditional Algorithm vs. Genetic Algorithm, Simple GA, General Genetic Algorithm, The Scheme Theorem, Classification of Genetic Algorithm, Holland Classifier Systems, Genetic Programming. Applications of Soft Computing: A Fusion Approach of Multispectral Images with SAR Image for Flood Area Analysis, Optimization of Travelling Salesman Problem using Genetic Algorithm Approach, Genetic Algorithm based Internet Search Technique, Soft Computing based Hybrid Fuzzy Controllers, Soft Computing based Rocket Engine, Control. </Deskripsi>
+        <Kode_Matkul>D10G.62C2</Kode_Matkul>
+        <Diajar rdf:resource="&Matkul;Dosen3"/>
+        <Diajar rdf:resource="&Matkul;Dosen4"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
