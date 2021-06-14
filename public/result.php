@@ -36,7 +36,7 @@
 
     <div class="content-result">
         <div class="search-container">
-            <form action="result2.php" method="POST">
+            <form action="result.php" method="POST">
             	<?php 
 		            if (isset($_POST['search'])) {
 		    					if (empty($_POST['search'])) {

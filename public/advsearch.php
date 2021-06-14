@@ -76,11 +76,6 @@ require_once('../vendor/autoload.php');
                                             ?Dosen :Biodata_Dosen ?Biodata_Dosen.
                                             ?Dosen :Mengajar ?Matkul.
                                             ?Matkul rdf:type :Matkul .
-                                            OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
-                                            OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
-                                            OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
-                                            OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
-                                            OPTIONAL {?Matkul :SKS ?SKS . }
                                                 OPTIONAL {?Matkul :Semester ?Semester . }}ORDER BY ASC(?Semester)
                                         ";
                                     
@@ -112,6 +107,12 @@ require_once('../vendor/autoload.php');
                             </select>
                             </div>
                         </div>
+
+                        <div class="">
+                            <div class="">
+                                <label>Tampilkan semua matkul :</label>
+                                <input type="checkbox" id="check" name="check" value="check">                            </div>
+                        </div>
                     </div>
                 <div class="inner-form">
                 <button class="btn-search" type="submit">Search</button>
@@ -142,6 +143,7 @@ require_once('../vendor/autoload.php');
         $sks = false;
         $biodata = false;
         $deskripsi = false;
+        $check = false;
 
         if (isset($_POST['dosen']))
             $dosen = $_POST['dosen'];
@@ -151,18 +153,19 @@ require_once('../vendor/autoload.php');
 
         if (isset($_POST['sks']))
             $sks = $_POST['sks'];
+        
+        if (isset($_POST['check']))
+            $check = $_POST['check'];
 
-        if (!$dosen && !$semester && !$sks) {
+        if (!$dosen && !$semester && !$sks && !$check) {
             echo "<div><h2>Masukkan Pencarian!</h2></div>";
-        }
-        //Error Handling
-        else {
+        }elseif(!$check){
             $fuseki_server = "http://localhost:3030"; // fuseki server address 
             $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
             $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
             $sc = new SparqlClient();
             $sc->setEndpointRead($endpoint);
-            $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            $q2 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -187,7 +190,7 @@ require_once('../vendor/autoload.php');
                   regex(?Semester, '$semester', 'i')) }
                 ";
             // proses ke query 
-            $rows = $sc->query($q, 'rows');
+            $rows = $sc->query($q2, 'rows');
             $err = $sc->getErrors();
             if ($err) {
                 print_r($err);
@@ -203,6 +206,7 @@ require_once('../vendor/autoload.php');
             if($sks == ""){
                 $sks = "-";
             }
+            
              $count = count($rows);
             echo "<div> Hasil Pencarian Dosen : <strong>$dosen</strong> / Semester : <strong>$semester</strong> / SKS : <strong>$sks</strong> </div>";
 
@@ -234,7 +238,81 @@ require_once('../vendor/autoload.php');
                     Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
                 </div>";
             }
+        }else{
+            
+            $fuseki_server = "http://localhost:3030"; // fuseki server address 
+            $fuseki_sparql_db = "matkul"; // fuseki Sparql database 
+            $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
+            $sc = new SparqlClient();
+            $sc->setEndpointRead($endpoint);
+            $q3 = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX : <http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#>
+            
+            SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester ?Deskripsi
+            WHERE { ?Dosen rdf:type :Dosen . 
+            ?Dosen :Nama_Dosen ?Nama_Dosen.
+            ?Dosen :Biodata_Dosen ?Biodata_Dosen.
+            ?Dosen :Mengajar ?Matkul.
+            ?Matkul rdf:type :Matkul .
+                OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                OPTIONAL {?Matkul :SKS ?SKS . }
+                OPTIONAL {?Matkul :Semester ?Semester . }
+                OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
+            }
+                ";
+            // proses ke query 
+            $rows = $sc->query($q3, 'rows');
+            $err = $sc->getErrors();
+            if ($err) {
+                print_r($err);
+                throw new Exception(print_r($err, true));
+            }
+
+            if($deskripsi == ""){
+                $deskripsi = "tidak ada";
+            }
+
+            
+             $count = count($rows);
+            echo "<div> Menampilkan Semua Mata Kuliah </div>";
+
+            if(empty($rows["result"]["rows"])){
+               echo "<div><h2>Hasil tidak ditemukan</h2></div>";
+            }
+
+            foreach ($rows["result"]["rows"] as $row) {
+                $matkul = $row["Nama_Matkul"];
+                $dosen = $row["Nama_Dosen"];
+                $semester = $row["Semester"];
+                $sks = $row["SKS"];
+                $kode = $row["Kode_Matkul"];
+                $deskripsi = $row["Deskripsi"];
+                $biodata = $row["Biodata_Dosen"];
+
+                echo "
+                <div class='card-result'>
+                    Mata Kuliah : <strong>$matkul</strong> <br>
+                    <button class='collapsible'>Deskripsi Mata Kuliah</button>
+                    <div class='deskripsi'>
+                    <p>$deskripsi</p>
+                    </div>
+                    Nama Dosen : $dosen<br>
+                    Semester : $semester<br>
+                    SKS : $sks<br>
+                    Kode : $kode<br>
+                    Biodata Dosen :  <a href='".$biodata."'>$biodata</a><br>
+                </div>";
+            }
         }
+        
+        
+            
         ?>
         </div>
         <script src="js/collapsible.js"></script>
