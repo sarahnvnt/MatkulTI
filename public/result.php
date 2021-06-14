@@ -36,7 +36,7 @@
 
     <div class="content-result">
         <div class="search-container">
-            <form action="result.php" method="POST">
+            <form action="result2.php" method="POST">
             	<?php 
 		            if (isset($_POST['search'])) {
 		    					if (empty($_POST['search'])) {
@@ -91,14 +91,18 @@
             $endpoint = $fuseki_server . "/" . $fuseki_sparql_db . "/query";
             $sc = new SparqlClient();
             $sc->setEndpointRead($endpoint);
-            $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+            $key = explode(" ",$search);
+            foreach($key as $kata){
+
+                $q = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                 PREFIX owl: <http://www.w3.org/2002/07/owl#>
                 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
                 PREFIX : <http://www.semanticweb.org/sarah/ontologies/2021/4/Matkul#>
                 
                 SELECT ?Kode_Matkul ?Nama_Matkul ?Nama_Dosen ?Biodata_Dosen ?SKS ?Semester ?Deskripsi
-                WHERE { ?Dosen rdf:type :Dosen . 
+                WHERE {{ ?Dosen rdf:type :Dosen . 
                 ?Dosen :Nama_Dosen ?Nama_Dosen.
                 ?Dosen :Biodata_Dosen ?Biodata_Dosen.
                 ?Dosen :Mengajar ?Matkul.
@@ -110,12 +114,68 @@
                     OPTIONAL {?Matkul :SKS ?SKS . }
                     OPTIONAL {?Matkul :Semester ?Semester . }
                     OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
-                FILTER (regex(?Nama_Matkul, '$search', 'i') || 
-                  regex(?Nama_Dosen, '$search', 'i') ||
-                  regex(?SKS, '$search', 'i') ||
-                  regex(?Kode_Matkul, '$search', 'i') ||
-                  regex(?Semester, '$search', 'i')) }
+                    FILTER (regex(?Nama_Matkul, '$kata', 'i'))}
+                UNION{
+                    ?Dosen rdf:type :Dosen . 
+                    ?Dosen :Nama_Dosen ?Nama_Dosen.
+                    ?Dosen :Biodata_Dosen ?Biodata_Dosen.
+                    ?Dosen :Mengajar ?Matkul.
+                    ?Matkul rdf:type :Matkul .
+                        OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                        OPTIONAL {?Matkul :SKS ?SKS . }
+                        OPTIONAL {?Matkul :Semester ?Semester . }
+                        OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
+                        FILTER (regex(?Nama_Dosen, '$kata', 'i'))
+                }UNION{
+                    ?Dosen rdf:type :Dosen . 
+                    ?Dosen :Nama_Dosen ?Nama_Dosen.
+                    ?Dosen :Biodata_Dosen ?Biodata_Dosen.
+                    ?Dosen :Mengajar ?Matkul.
+                    ?Matkul rdf:type :Matkul .
+                        OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                        OPTIONAL {?Matkul :SKS ?SKS . }
+                        OPTIONAL {?Matkul :Semester ?Semester . }
+                        OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
+                        FILTER (regex(?SKS, '$kata', 'i'))
+                }UNION{
+                    ?Dosen rdf:type :Dosen . 
+                    ?Dosen :Nama_Dosen ?Nama_Dosen.
+                    ?Dosen :Biodata_Dosen ?Biodata_Dosen.
+                    ?Dosen :Mengajar ?Matkul.
+                    ?Matkul rdf:type :Matkul .
+                        OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                        OPTIONAL {?Matkul :SKS ?SKS . }
+                        OPTIONAL {?Matkul :Semester ?Semester . }
+                        OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
+                        FILTER (regex(?Kode_Matkul, '$kata', 'i'))
+                }UNION{
+                    ?Dosen rdf:type :Dosen . 
+                    ?Dosen :Nama_Dosen ?Nama_Dosen.
+                    ?Dosen :Biodata_Dosen ?Biodata_Dosen.
+                    ?Dosen :Mengajar ?Matkul.
+                    ?Matkul rdf:type :Matkul .
+                        OPTIONAL {?Matkul :Kode_Matkul ?Kode_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Matkul ?Nama_Matkul . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Nama_Dosen . }
+                        OPTIONAL {?Matkul :Nama_Dosen ?Biodata_Dosen . }
+                        OPTIONAL {?Matkul :SKS ?SKS . }
+                        OPTIONAL {?Matkul :Semester ?Semester . }
+                        OPTIONAL {?Matkul :Deskripsi ?Deskripsi .}
+                        FILTER (regex(?Semester, '$kata', 'i'))
+                }}
                 ";
+            }
+
+            
             // proses ke query 
             $rows = $sc->query($q, 'rows');
             $err = $sc->getErrors();
